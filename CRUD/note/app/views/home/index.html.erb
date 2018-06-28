@@ -1,0 +1,25 @@
+<h1>멋쟁이 사자처럼</h1>
+<p>
+    <a href="/home/new">새 글 쓰기.</a><br><br>
+    <% @posts.each do |x| %>
+        제목 : <%=x.title%><br>
+        내용 : <%=x.content%><br>
+        <a href="/home/destroy/<%=x.id%>">[삭제]</a><br>
+        <a href="/home/edit/<%=x.id%>">[수정]</a><br>
+        <br>
+        <form action = '/posts/<%=x.id%>/comments/create' method='post'>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <textarea name = 'content'></textarea>
+            <input type = 'submit' value="댓글쓰기!"><br>
+        </form>
+        
+        <%x.comments.each do |comment|%>
+            <%=comment.content%><br>
+            <a href ='/posts/<%=x.id%>/comments/<%=comment.id%>'>[삭제]</a><br>
+        <%end%>
+        
+        
+        ---------------------<br>
+    <%end%>    
+        
+</p>

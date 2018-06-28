@@ -1,0 +1,17 @@
+<h1>index 페이지입니다.</h1>
+
+<form action="home/attack" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    누가: <input type="text" name="userA"><br><br>
+    누구를: <input type="text" name="userB"><br><br>
+    <input type="submit" value="공격">
+</form>
+<br><br>
+<form action="home/attack" method="get">
+    누가: <input type="text" name="userA"><br><br>
+    누구를: <input type="text" name="userB"><br><br>
+    <input type="submit" value="방어">
+</form>
+
+<!--<h3><a href="home/attack">공격</a><br></h3>-->
+<!--<h3><a href="home/defense">방어</a></h3>-->
