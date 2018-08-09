@@ -1,0 +1,13 @@
+<h1>모든 노트들 목록입니다.</h1>
+<h2><a href='/notes/new'>New Note</a></h2>
+<ul>
+<% @notes.each do |note| %>
+    <li><a href='/notes/<%= note.id %>'><p><%= note.title %></a></p></li>
+<% end %>    
+</ul>
+
+<% if current_user.nil? %>
+  <%= link_to 'Sign_in', new_user_session_path %>
+<% else %>
+  <%= link_to 'Sign_out', destroy_user_session_path, method: 'delete'%>
+<% end %>
